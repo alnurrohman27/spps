@@ -1,0 +1,114 @@
+<!-- Wrapper-->
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <div ng-include="'views/common/navigation.html'"></div>
+
+    <!-- Page wraper -->
+    <!-- ng-class with current state name give you the ability to extended customization your view -->
+    <div id="page-wrapper" class="gray-bg {{$state.current.name}}">
+
+        <!-- Page wrapper -->
+        <div ng-include="'views/common/topnavbar.html'"></div>
+
+        <!-- Main view  -->
+        <div ui-view>
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h2>{{ 'STOCK' | translate }}</h2>
+                    <ol class="breadcrumb">
+                        <li>
+                            <a ui-sref="dashboards">{{ 'DASHBOARD' | translate }}</a>
+                        </li>
+                        <li class="active">
+                            <a>{{ 'STOCK' | translate }}</a>
+                        </li>
+                    </ol>
+                </div>
+                <div class="col-lg-2">
+
+                </div>
+            </div>
+            <div class="wrapper wrapper-content animated fadeIn" ng-controller="datatables_stock">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox">
+                            <div class="ibox-title">
+                                <h5>{{ 'STOCK' | translate }}</h5>
+                                <div ibox-tools-full-screen=""></div>
+                            </div>
+                            <div class="ibox-content">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                List
+                                            </div>
+                                            <div class="panel-body">
+                                                <p>
+                                                    <button id="refresh" class="btn btn-primary" ng-click="refresh_table()">Refresh</button>
+                                                </p>
+                                                <table datatable="ng" dt-options="dtOptions" class="table table-striped table-bordered table-hover dataTables-example">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>Nama</th>
+                                                        <th>Password</th>
+                                                        <th>Aksi</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr ng-repeat="v in stocks">
+                                                        <td>{{ v.ID }}</td>
+                                                        <td>{{ v.NAMA }}</td>
+                                                        <td>{{ v.PASSWORD }}</td>
+                                                        <td><button ng-click="open_modal(v.ID, v.NAMA, v.PASSWORD)">Ubah</button><button ng-click="delete(v.ID)">Hapus</button></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- /.panel-body -->
+                                        </div>
+                                        <!-- /.panel -->
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                {{ 'ADD' | translate }} {{ 'STOCK' | translate }}
+                                            </div>
+                                            <div class="panel-body">
+                                                <form role="form" ng-submit="insert_stock()">
+                                                    <div class="form-group">
+                                                        <label>Nama</label>
+                                                        <input ng-model="name" class="form-control" minLength="3" maxLength="100" placeholder="Masukkan Nama" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Password</label>
+                                                        <input ng-model="password" minLength="3" maxLength="12" class="form-control" type="password" placeholder="Masukkan Password" required>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-default">Kirim</button>
+                                                </form>
+                                            </div>
+                                            <!-- /.panel-body -->
+                                        </div>
+                                        <!-- /.panel -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div ng-include="'views/common/footer.html'"></div>
+
+    </div>
+    <!-- End page wrapper-->
+
+    <!-- Right Sidebar -->
+    <div ng-include="'views/common/right_sidebar.html'"></div>
+
+</div>
+<!-- End wrapper-->

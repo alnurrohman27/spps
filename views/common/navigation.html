@@ -1,0 +1,40 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul side-navigation class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+
+                <div class="profile-element" uib-dropdown>
+                    <img alt="image" class="img-circle" src="img/logo.jpg"/>
+                    <a ui-sref="dashboards">
+                        <span class="clear">
+                            <span class="block m-t-xs">
+                                <strong class="font-bold">Prediksi Harga Saham</strong>
+                            </span>
+                        </span>
+                    </a>
+                </div>
+                <div class="logo-element">
+                    IN+
+                </div>
+            </li>
+            <li ng-class="{active: $state.includes('dashboards')}">
+                <a ui-sref="dashboards"><i class="fa fa-th"></i> <span class="nav-label">{{ 'DASHBOARD' | translate }}</span> </a>
+            </li>
+            <!--<li ng-class="{active: $state.includes('account')}">
+                <a ui-sref="account"><i class="fa fa-user fa-fw"></i> <span class="nav-label">{{ 'ACCOUNT' | translate }}</span></a>
+            </li>
+            <li ng-class="{active: $state.includes('encoding')}">
+                <a href=""><i class="fa fa-code fa-fw"></i> <span class="nav-label">{{ 'ATTRIBUTES' | translate }}</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse" ng-class="{in: $state.includes('attributes')}">
+                    <li ui-sref-active="active"><a ui-sref="attributes.types">{{ 'ATTRIBUTES_TYPES' | translate }}</a></li>
+                    <li ui-sref-active="active"><a ui-sref="attributes.factor">{{ 'ATTRIBUTES_FACTOR' | translate }}</a></li>
+                    <li ui-sref-active="active"><a ui-sref="attributes.method">{{ 'ATTRIBUTES_METHOD' | translate }}</a></li>
+                </ul>
+            </li> -->
+            <li ng-class="{active: $state.includes('holts')}">
+                <a ui-sref="holts"><i class="fa fa-user fa-fw"></i> <span class="nav-label">{{ 'HOLTS' | translate }}</span></a>
+            </li>
+        </ul>
+
+    </div>
+</nav>

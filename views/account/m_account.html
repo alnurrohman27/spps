@@ -1,0 +1,29 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body><div class="inmodal">
+    <div class="modal-header">
+        <i class="fa fa-user modal-icon"></i>
+        <h4 class="modal-title">Ubah User</h4>
+        <small class="font-bold">{{name_before}}</small>
+    </div>
+    <div class="modal-body">
+        <form role="form" ng-submit="update_user()">
+            <div class="form-group">
+                <label>ID</label>
+                <input ng-model="id" class="form-control" value="{{id}}" required readonly>
+            </div>
+            <div class="form-group">
+                <label>Nama</label>
+                <input ng-model="name" class="form-control" maxLength="100" placeholder="Masukkan Nama" value="{{name}}" required>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input ng-model="password" maxLength="50" class="form-control" type="text" placeholder="Masukkan Password" value="{{password}}" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Simpan Perubahan</button><code ng-show="message != null">{{message}}</code>
+            </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-white" ng-click="cancel()">Tutup</button>
+    </div>
+</div>
+
+</body></html>

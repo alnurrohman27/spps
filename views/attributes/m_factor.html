@@ -1,0 +1,36 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body><div class="inmodal">
+    <div class="modal-header">
+        <i class="fa fa-factor modal-icon"></i>
+        <h4 class="modal-title">Ubah Faktor</h4>
+        <small class="font-bold">{{name_before}}</small>
+    </div>
+    <div class="modal-body">
+        <form role="form" ng-submit="update_factor()">
+            <div class="form-group">
+                <label>ID</label>
+                <input ng-model="id" class="form-control" value="{{id}}" required readonly>
+            </div>
+            <div class="form-group">
+                <label>Nama</label>
+                <input ng-model="name" class="form-control" maxLength="50" placeholder="Masukkan Nama" value="{{name}}" required>
+            </div>
+            <div class="form-group">
+                <label>Jenis Faktor (sebelumnya: {{name_before}})</label>
+                <select style="width: 100%;" ng-model="type" class="form-control" required>
+                    <option value="">Pilih Jenis Faktor</option>
+                    <option ng-repeat="(k,v) in types" value="{{v.ID_JENIS_FAKTOR}}">{{v.NAMA_JENIS_FAKTOR}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Nilai</label>
+                <input ng-model="value" class="form-control" type="float" placeholder="Masukkan Nilai" value="{{value}}" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Simpan Perubahan</button><code ng-show="message != null">{{message}}</code>
+            </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-white" ng-click="cancel()">Tutup</button>
+    </div>
+</div>
+
+</body></html>

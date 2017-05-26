@@ -1,0 +1,72 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body><div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>{{ 'ATTRIBUTES_FACTOR' | translate }}</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a ui-sref="dashboards">{{ 'DASHBOARD' | translate }}</a>
+            </li>
+            <li>
+                <a>{{ 'ATTRIBUTES' | translate }}</a>
+            </li>
+            <li class="active">
+                <strong>{{ 'ATTRIBUTES_FACTOR' | translate }}</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeIn" ng-controller="datatables_factor">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>{{ 'ATTRIBUTES_FACTOR' | translate }}</h5>
+                    <div ibox-tools-full-screen=""></div>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    List
+                                </div>
+                                <div class="panel-body">
+                                    <p>
+                                        <button id="refresh" class="btn btn-primary" ng-click="refresh_table()">Refresh</button>
+                                    </p>
+                                    <table datatable="ng" dt-options="dtOptions" class="table table-striped table-bordered table-hover dataTables-example">
+                                        <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nama</th>
+                                            <th>ID Jenis Faktor</th>
+                                            <th>Nama Jenis Faktor</th>
+                                            <th>Nilai</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr ng-repeat="v in factor">
+                                            <td>{{ v.ID_FAKTOR }}</td>
+                                            <td>{{ v.NAMA }}</td>
+                                            <td>{{ v.ID_JENIS_FAKTOR }}</td>
+                                            <td>{{ v.NAMA_JENIS_FAKTOR }}</td>
+                                            <td>{{ v.NILAI }}</td>
+                                            <td><button ng-click="open_modal(v.ID_FAKTOR, v.NAMA, v.ID_JENIS_FAKTOR, v.NAMA_JENIS_FAKTOR, v.NILAI)">Ubah</button><button ng-click="delete(v.ID)">Hapus</button></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.panel-body -->
+                            </div>
+                            <!-- /.panel -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body></html>
